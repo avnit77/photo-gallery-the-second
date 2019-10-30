@@ -1,9 +1,8 @@
-
-import Component from './Component.js'; //component
-import images from '../data/images.js'; //imager
-import Header from './Header.js'; //header
-import ImageList from './ImageList.js'; //gallery
-import FilterImages from './FilterImages.js'; //filter
+import Component from '../Component.js';
+import images from '../data/images.js';
+import Header from './Header.js';
+import ImageList from './ImageList.js';
+import FilterImages from './FilterImages.js';
 
 class App extends Component {
     renderHTML() {
@@ -43,7 +42,7 @@ class App extends Component {
                 }
                 else {
                     filteredimages = images.filter(image => {
-                        return image.type === imageType;
+                        return image.keyword === imageType;
                     });
                 }
 

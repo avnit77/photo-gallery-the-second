@@ -6,14 +6,13 @@ class Component {
         this.state = {};
     }
 
-    onRender(/*dom*/) {
-        // no-op
+    onRender() {
     }
 
     renderDOM() {
         const html = this.renderHTML();
         if (typeof(html) !== 'string') {
-            throw new Error(`Component "${this.constructor.name}" needs to return an html string from renderHTML`);
+            throw new Error(`Component "${this.constructor.title}" needs to return an html string from renderHTML`);
         }
 
         const dom = htmlToDOM(html);
@@ -28,7 +27,7 @@ class Component {
     }
 
     renderHTML() {
-        throw new Error(`Component "${this.constructor.name}" needs to implement renderHTML`);
+        throw new Error(`Component "${this.constructor.title}" needs to implement renderHTML`);
     }
 
     update(props) {
@@ -39,7 +38,7 @@ class Component {
         const oldRoot = this.rootElement;
 
         if (!oldRoot) {
-            throw new Error(`"update()" was called on Component "${this.constructor.name}", but no prior render has happened. Be sure to call ".renderDOM()" before using ".update()"`);
+            throw new Error(`"update()" was called on Component "${this.constructor.title}", but no prior render has happened. Be sure to call ".renderDOM()" before using ".update()"`);
         }
 
         const newDOM = this.renderDOM();
